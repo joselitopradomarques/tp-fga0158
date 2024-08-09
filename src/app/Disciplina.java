@@ -1,21 +1,22 @@
 package app;
+
 public class Disciplina {
-    private int id;
+    private String codigoDisciplina;
     private String nome;
 
-    // Construtor
-    public Disciplina(int id, String nome) {
-        this.id = id;
+    // Método Construtor
+    public Disciplina(String codigoDisciplina, String nome) {
+        this.codigoDisciplina = codigoDisciplina;
         this.nome = nome;
     }
 
     // Getters e Setters
-    public int getId() {
-        return id;
+    public String getCodigoDisciplina() {
+        return codigoDisciplina;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigoDisciplina(String codigoDisciplina) {
+        this.codigoDisciplina = codigoDisciplina;
     }
 
     public String getNome() {
@@ -26,9 +27,7 @@ public class Disciplina {
         this.nome = nome;
     }
 
-    // Método toString para exibir as informações da disciplina
-    @Override
     public String toString() {
-        return "Disciplina [ID=" + id + ", Nome=" + nome + "]";
+        return "Disciplina [Código=" + codigoDisciplina + ", Nome=" + nome + "]";
     }
 }

@@ -1,4 +1,5 @@
 package cadastros;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import app.Disciplina;
 public class CadastroDisciplina {
     private List<Disciplina> disciplinas;
 
-    // Construtor
+    // Método Construtor
     public CadastroDisciplina() {
         this.disciplinas = new ArrayList<>();
     }
@@ -15,19 +16,19 @@ public class CadastroDisciplina {
     // Método para adicionar disciplina
     public void adicionarDisciplina(Disciplina disciplina) throws CampoEmBrancoException {
         validarDisciplina(disciplina);
-        // Verifica se já existe uma disciplina com o mesmo ID
+        // Verifica se já existe uma disciplina com o mesmo código
         for (Disciplina d : disciplinas) {
-            if (d.getId() == disciplina.getId()) {
-                throw new RuntimeException("Disciplina com o mesmo ID já existe.");
+            if (d.getCodigoDisciplina().equals(disciplina.getCodigoDisciplina())) {
+                throw new RuntimeException("Disciplina com o mesmo código já existe.");
             }
         }
         disciplinas.add(disciplina);
     }
 
-    // Método para pesquisar disciplina por ID
-    public Disciplina pesquisarDisciplina(int id) {
+    // Método para pesquisar disciplina por código
+    public Disciplina pesquisarDisciplina(String codigoDisciplina) {
         for (Disciplina d : disciplinas) {
-            if (d.getId() == id) {
+            if (d.getCodigoDisciplina().equals(codigoDisciplina)) {
                 return d;
             }
         }
@@ -38,7 +39,7 @@ public class CadastroDisciplina {
     public void atualizarDisciplina(Disciplina disciplina) throws CampoEmBrancoException {
         validarDisciplina(disciplina);
         for (int i = 0; i < disciplinas.size(); i++) {
-            if (disciplinas.get(i).getId() == disciplina.getId()) {
+            if (disciplinas.get(i).getCodigoDisciplina().equals(disciplina.getCodigoDisciplina())) {
                 disciplinas.set(i, disciplina);
                 return;
             }
@@ -47,14 +48,14 @@ public class CadastroDisciplina {
     }
 
     // Método para remover disciplina
-    public void removerDisciplina(int id) {
-        disciplinas.removeIf(d -> d.getId() == id);
+    public void removerDisciplina(String codigoDisciplina) {
+        disciplinas.removeIf(d -> d.getCodigoDisciplina().equals(codigoDisciplina));
     }
 
     // Validação de disciplina
     private void validarDisciplina(Disciplina disciplina) throws CampoEmBrancoException {
         if (disciplina.getNome() == null || disciplina.getNome().trim().isEmpty()) {
-            throw new CampoEmBrancoException("Nome");
+            throw new CampoEmBrancoException("Nome não pode ser vazio.");
         }
     }
 }
