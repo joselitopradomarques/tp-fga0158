@@ -55,7 +55,7 @@ public class CadastroDisciplina {
     // Validação de disciplina
     private void validarDisciplina(Disciplina disciplina) throws CampoEmBrancoException {
         if (disciplina.getNome() == null || disciplina.getNome().trim().isEmpty()) {
-            throw new CampoEmBrancoException("Nome não pode ser vazio.");
+            throw new CampoEmBrancoException("Nome");
         }
     }
 }
