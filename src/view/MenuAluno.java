@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 
 import app.Aluno;
 import cadastros.CadastroAluno;
+import cadastros.CampoemBranco;
+import cadastros.CampoemBranco;
 
 public class MenuAluno {
 
@@ -17,23 +19,103 @@ public class MenuAluno {
 	}
 
 	private static String lerCurso() {
-		return JOptionPane.showInputDialog("Informe o curso do aluno: ");
+		String emailval = null;
+		boolean formval = false;
+		while(!formval) {
+			try {
+				emailval = JOptionPane.showInputDialog("Informe o curso do aluno: ");	
+				if( emailval.trim().isEmpty()) {
+					throw new CampoemBranco("Curso");
+				}
+				formval = true;
+				
+			}catch(CampoemBranco e) {
+				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+			}
+			
+					
+		}
+		return emailval;
 	}
 
 	private static String lerEmail() {
-		return JOptionPane.showInputDialog("Informe o email do aluno: ");
+		String emailval = null;
+		boolean formval = false;
+		while(!formval) {
+			try {
+				emailval = JOptionPane.showInputDialog("Informe o email do aluno: ");	
+				if( emailval.trim().isEmpty()) {
+					throw new CampoemBranco("email");
+				}
+				formval = true;
+				
+			}catch(CampoemBranco e) {
+				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+			}
+			
+					
+		}
+		return emailval;
 	}
 
 	private static String lerCPF() {
-		return JOptionPane.showInputDialog("Informe o CPF do aluno: ");
+		String emailval = null;
+		boolean formval = false;
+		while(!formval) {
+			try {
+				emailval = JOptionPane.showInputDialog("Informe o CPF do aluno: ");	
+				if( emailval.trim().isEmpty()) {
+					throw new CampoemBranco("CPF");
+				}
+				formval = true;
+				
+			}catch(CampoemBranco e) {
+				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+			}
+			
+					
+		}
+		return emailval;
 	}
 
 	private static String lerNome() {
-		return JOptionPane.showInputDialog("Informe o nome do aluno: ");
+		String emailval = null;
+		boolean formval = false;
+		while(!formval) {
+			try {
+				emailval = JOptionPane.showInputDialog("Informe o nome do aluno: ");	
+				if( emailval.trim().isEmpty()) {
+					throw new CampoemBranco("nome");
+				}
+				formval = true;
+				
+			}catch(CampoemBranco e) {
+				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+			}
+			
+					
+		}
+		return emailval;
 	}
 
 	private static String lerMatricula() {
-		return JOptionPane.showInputDialog("Informe a matricula do aluno: ");
+		String emailval = null;
+		boolean formval = false;
+		while(!formval) {
+			try {
+				emailval = JOptionPane.showInputDialog("Informe a matricula do aluno: ");	
+				if( emailval.trim().isEmpty()) {
+					throw new CampoemBranco("matricula");
+				}
+				formval = true;
+				
+			}catch(CampoemBranco e) {
+				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+			}
+			
+					
+		}
+		return emailval;
 	}
 
 	public static void menuAluno(CadastroAluno cadAluno) {
@@ -60,6 +142,9 @@ public class MenuAluno {
 				Aluno a = cadAluno.pesquisarAluno(matricula);
 				if (a != null)
 					JOptionPane.showMessageDialog(null, a.toString());
+				else {
+					JOptionPane.showMessageDialog(null, "aluno nao encontrado");
+				}
 				break;
 				
 			case 3: 

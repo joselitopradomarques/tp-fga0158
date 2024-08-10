@@ -1,10 +1,11 @@
-package menus;
+package view;
 
 import javax.swing.JOptionPane;
 
 
 import app.Professor;
 import cadastros.CadastroProfessor;
+import cadastros.CampoemBranco;
 
 public class MenuProfessor {
 
@@ -26,11 +27,11 @@ public class MenuProfessor {
 			try {
 				learea = JOptionPane.showInputDialog("Informe a area de formação do professor: ");	
 				if( learea.trim().isEmpty() ) {
-					throw new IllegalArgumentException("Área vazia, por favor coloque uma infomação valida");
+					throw new CampoemBranco("area de formação");
 				}
 				formval = true;
 				
-			}catch(IllegalArgumentException e) {
+			}catch(CampoemBranco e) {
 				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 			}
 			
@@ -46,11 +47,11 @@ public class MenuProfessor {
 			try {
 				emailval = JOptionPane.showInputDialog("Informe o email do professor: ");	
 				if( emailval.trim().isEmpty()) {
-					throw new IllegalArgumentException("Área vazia, por favor coloque uma infomação valida");
+					throw new CampoemBranco("email");
 				}
 				formval = true;
 				
-			}catch(IllegalArgumentException e) {
+			}catch(CampoemBranco e) {
 				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 			}
 			
@@ -66,10 +67,10 @@ public class MenuProfessor {
 			try {
 				cpfval = JOptionPane.showInputDialog("Informe o cpf do professor: ");	
 				if( cpfval.trim().isEmpty()) {
-					throw new IllegalArgumentException("Área vazia, por favor coloque uma infomação valida");
+					throw new CampoemBranco("cpf");
 				}
 				formval = true;
-			}catch(IllegalArgumentException e) {
+			}catch(CampoemBranco e) {
 				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 				}
 	     }
@@ -83,10 +84,10 @@ public class MenuProfessor {
 			try {
 				nomeval = JOptionPane.showInputDialog("Informe o nome do professor: ");	
 				if( nomeval.trim().isEmpty()) {
-					throw new IllegalArgumentException("Área vazia, por favor coloque uma infomação valida");
+					throw new CampoemBranco("nome");
 				}
 				formval = true;
-			}catch(IllegalArgumentException e) {
+			}catch(CampoemBranco e) {
 				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 				}
 	     }
@@ -101,10 +102,10 @@ public class MenuProfessor {
 			try {
 				matrival = JOptionPane.showInputDialog("Informe a matriculaFUB do professor: ");	
 				if( matrival.trim().isEmpty()) {
-					throw new IllegalArgumentException("Área vazia, por favor coloque uma infomação valida");
+					throw new CampoemBranco("matricula");
 				}
 				formval = true;
-			}catch(IllegalArgumentException e) {
+			}catch(CampoemBranco e) {
 				 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 				}
 	     }
