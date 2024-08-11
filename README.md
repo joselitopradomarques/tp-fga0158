@@ -8,13 +8,13 @@
 
 ## Alunos
 
-**Arthur Luiz Silva Guedes - 231028675**
+**Arthur Luiz Silva Guedes - 23/1028675**
 
 **Heyttor Augusto de Assis Silva - 23/2002996**
 
 **Joselito Prado Marques da Silva - 14/0023704**
 
-**Nathan Henrique Magalhães de Castro - 231011758**
+**Nathan Henrique Magalhães de Castro - 23/1011758**
 
 ---
 
@@ -90,39 +90,39 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
 ### Teste de Cadastro de Disciplina
 
 - **Inserção**:
-  - **Código**: MAT101
-  - **Nome**: Matemática I
+  - **Código**: FGA0158
+  - **Nome**: Orientaçã a Objetos
 
 - **Resultado Esperado**:
   - A disciplina deve ser cadastrada com sucesso.
-  - A lista de disciplinas deve incluir "MAT101 - Matemática I".
+  - O sistema mostrará "Disciplina criada com sucesso"
 
 ### Teste de Pesquisa de Disciplina
 
 - **Inserção**:
-  - **Código**: MAT101
+  - **Código**: FGA0158
 
 - **Resultado Esperado**:
-  - O sistema deve retornar as informações da disciplina com código "MAT101", incluindo nome.
+  - O sistema deve retornar as informações da disciplina com código "FGA0158", incluindo nome "Orientação a objetos".
 
 ### Teste de Alteração de Disciplina
 
 - **Inserção**:
-  - **Código**: MAT101
-  - **Novo Nome**: Matemática Avançada
+  - **Código**: FGA0158
+  - **Novo Nome**: OO
 
 - **Resultado Esperado**:
-  - O nome da disciplina com código "MAT101" deve ser alterado para "Matemática Avançada".
-  - A lista de disciplinas deve refletir a alteração.
+  - O nome da disciplina com código "FGA0158" deve ser alterado para "OO".
+  - O sistema deve retornar a mensagem "Disciplina atualizada com sucesso."
 
 ### Teste de Remoção de Disciplina
 
 - **Inserção**:
-  - **Código**: MAT101
+  - **Código**: FGA0158
 
 - **Resultado Esperado**:
-  - A disciplina com código "MAT101" deve ser removida com sucesso.
-  - A lista de disciplinas não deve incluir mais a disciplina com código "MAT101".
+  - A disciplina com código "FGA0158" deve ser removida com sucesso.
+  - O sistema deve retornar a mensagem "Disciplina removida com sucesso."
 
 ### Teste de Cadastro de Turma
 
