@@ -8,13 +8,13 @@
 
 ## Alunos
 
-**Arthur Luiz Silva Guedes - 231028675**
+**Arthur Luiz Silva Guedes - 23/1028675**
 
 **Heyttor Augusto de Assis Silva - 23/2002996**
 
 **Joselito Prado Marques da Silva - 14/0023704**
 
-**Nathan Henrique Magalhães de Castro - 231011758**
+**Nathan Henrique Magalhães de Castro - 23/1011758**
 
 ---
 
