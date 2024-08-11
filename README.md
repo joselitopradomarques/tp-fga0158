@@ -124,6 +124,15 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
   - A disciplina com código "FGA0158" deve ser removida com sucesso.
   - O sistema deve retornar a mensagem "Disciplina removida com sucesso."
 
+### Teste de Campo em Branco de Disciplina
+
+- **Inserção**: Qualquer método de disciplina em branco
+  - **Código**: Dar "enter" ou dar espaço depois enter em um dos campos
+
+- **Resultado Esperado**:
+  - O campo 'campo' não pode estar em branco.
+  - Posteriormente, o código finaliza o processo que estava acontecendo e volta ao menu inicial de Disciplinas.
+
 ### Teste de Cadastro de Turma
 
 - **Inserção**:
