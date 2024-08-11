@@ -1,80 +1,201 @@
+# Trabalho Prático de Orientação por Objetos - FGA
 
-UnB - Universidade de Brasilia  
-FGA - Faculdade do Gama  
-OO - Orientação por Objetos  
-Prof. André Luiz Peron Martins Lanna  
+## Universidade de Brasília (UnB) - Faculdade do Gama (FGA)
 
-#### Trabalho Prático de Orientação por Objetos 
+### Orientação por Objetos (OO)
+
+**Prof. André Luiz Peron Martins Lanna**
+
+## Alunos
+
+**Arthur Luiz Silva Guedes - 231028675**
+
+**Heyttor Augusto de Assis Silva - 23/2002996**
+
+**Joselito Prado Marques da Silva - 14/0023704**
+
+**Nathan Henrique Magalhães de Castro - 231011758**
+
 ---
 
-## Objetivo:  
-O objetivo deste trabalho prático é aplicar os conceitos fundamentais de
-Orientação por Objetos (OO), em especial os conceitos de Herança e Polimorfismo,
-no contexto de um sistema de gestão acadêmico. Utilizando o cenário descrito
-abaixo e o conjunto de classes presentes nesse diretório (como ponto de partida
-para o trabalho), os grupos de quatro alunos deverão implementar um sistema em
-Java que explore ao máximo os conceitos de Orientação por Objetos.
+## Objetivo
 
-O diagrama de classes abaixo representa parte do que já está implementado. 
-![Diagrama de classes](diagClasses.jpg)
+Aplicar conceitos fundamentais de Orientação por Objetos (OO) para desenvolver um sistema de gestão acadêmica, utilizando Herança e Polimorfismo. Implementar um sistema em Java que gerencie cadastros de alunos, professores, disciplinas, turmas e salas de aula.
 
-## Cenário da Oficina Mecânica:  
-Um sistema de gestão acadêmica é responsável, basicamente, por realizar o
-cadastro de todos os elementos pertencentes ao domínio de uma universidade. Por
-exemplo, o sistema é responsável por cadastrar todos os alunos e professores,
-todas as disciplinas, todas as turmas de cada disciplina e, por fim, todas as
-salas de aulas. 
+## Cenário da Oficina Mecânica
 
-Esse sistem deve também ser capaz de criar turmas para cada disciplina e, para
-cada turma, deve ser capaz de associar um professor e matricular os alunos,
-ambos já existentes no cadastro. Para cada turma, o sistema deverá ser capaz de
-imprimir a lista de presença que contenha, obrigatoriamente, o nome da
-disciplina, o nome do professor daquela turma, o código da turma e a lista de
-alunos (matricula e nome) matriculados. 
+O sistema deve:
+- Cadastrar alunos, professores, disciplinas, turmas e salas de aula.
+- Criar turmas associadas a disciplinas e professores, e matricular alunos.
+- Imprimir a lista de presença com nome da disciplina, nome do professor, código da turma e lista de alunos matriculados.
+- Impedir cadastro com campos em branco e lançar exceções apropriadas:
+  - `CampoEmBrancoException`
+  - `DisciplinaNaoAtribuidaException`
+  - `ProfessorNaoAtribuidoException`
 
-O sistema deverá ainda ser capaz de impedir o cadastro de elementos do domínio
-que tenham valores em branco para qualquer um de seus atributos. Nesses casos
-deverá lançar uma exceção do tipo "CampoEmBrancoException", em que na mensagem
-do objeto de exceção seja informado qual o campo que ficou em branco. Com
-relação às turmas, essas não poderão serem cadastradas se não tiver uma
-disciplina e / ou um professor associado. Nesses casos deverão ser lançadas as
-exceções "DisciplinaNaoAtribuidaException" e "ProfessorNaoAtribuidoException",
-respectivamente. 
+## Enunciado
 
+- Implementar lançamento e tratamento de exceções para o cadastro de alunos.
+- Implementar cadastros de disciplinas, turmas e professores, com operações de cadastro, pesquisa, alteração e remoção.
+- Implementar a impressão da lista de presença para uma turma pesquisada.
 
-## Enunciado:  
-O código presente no diretório já realiza o cadastro de Alunos mas sem tratar as
-exceções listadas no cenário descrito acima. Para o trabalho faça o que se pede:
-- Implemente o lançamento e tratamento de exceções para o cadastro de alunos;
-- Implemente os cadastros faltantes (disciplinas, turmas e professores), em
-  todas as suas operações: 
-  - cadastrar
-  - pesquisar
-  - alterar
-  - remover
-- Para os novos cadastros, lance e trate as exceções listadas no cenário
-  descrito acima.
-- Imprima a lista de presença para uma data turma pesquisada. Exemplo: ao
-  informar o codigo "t1", o programa vai listar a lista de disciplinas da turma
-cadastrada com o código "t1".
+## Instalação e Execução
 
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/joselitopradomarques/tp-fga0158.git
 
-## Entrega:  
-O trabalho deve ser entregue no GitHub como um projeto Java, contendo o código
-fonte, documentação adequada e exemplos de execução. O README do repositório
-deve incluir informações sobre os componentes do grupo e a forma de execução do
-programa.
+## Inserções para Testes e Resultados Esperados
 
-## Avaliação:  
-O trabalho deverá ser entregue até o dia 12/08/2024, pelo repositório do grupo.
-O trabalho será avaliado quanto à completude e corretude dos cadastros (todos os
-cadastros executam todas as operações desejadas e de modo correto), e quanto ao
-lançamento e tratamento das exceções solicitadas. 
+Aqui estão alguns exemplos de inserções e os resultados esperados para testar todas as funcionalidades e operações do sistema:
 
-## Observações:
--  O trabalho deve ser realizado em grupos de quatro pessoas.
--  O trabalho deverá ser entregue em repositório do GitHub. O grupo deverá
-   informar ao professor o endereço do repositório. 
--  Utilize boas práticas de programação.
--  A apresentação do código e a clareza da documentação também serão
-   consideradas na avaliação.
+### Teste de Cadastro de Aluno
+
+- **Inserção**:
+  - **Nome**: João Silva
+  - **Matrícula**: 123456
+  - **Data de Nascimento**: 01/01/2000
+
+- **Resultado Esperado**:
+  - O aluno deve ser cadastrado com sucesso.
+  - A lista de alunos deve incluir "João Silva" com matrícula "123456".
+
+### Teste de Pesquisa de Aluno
+
+- **Inserção**:
+  - **Matrícula**: 123456
+
+- **Resultado Esperado**:
+  - O sistema deve retornar as informações do aluno com matrícula "123456", incluindo nome e data de nascimento.
+
+### Teste de Alteração de Aluno
+
+- **Inserção**:
+  - **Matrícula**: 123456
+  - **Novo Nome**: João Pedro Silva
+
+- **Resultado Esperado**:
+  - O nome do aluno com matrícula "123456" deve ser alterado para "João Pedro Silva".
+  - A lista de alunos deve refletir a alteração.
+
+### Teste de Remoção de Aluno
+
+- **Inserção**:
+  - **Matrícula**: 123456
+
+- **Resultado Esperado**:
+  - O aluno com matrícula "123456" deve ser removido com sucesso.
+  - A lista de alunos não deve incluir mais o aluno com matrícula "123456".
+
+### Teste de Cadastro de Disciplina
+
+- **Inserção**:
+  - **Código**: MAT101
+  - **Nome**: Matemática I
+
+- **Resultado Esperado**:
+  - A disciplina deve ser cadastrada com sucesso.
+  - A lista de disciplinas deve incluir "MAT101 - Matemática I".
+
+### Teste de Pesquisa de Disciplina
+
+- **Inserção**:
+  - **Código**: MAT101
+
+- **Resultado Esperado**:
+  - O sistema deve retornar as informações da disciplina com código "MAT101", incluindo nome.
+
+### Teste de Alteração de Disciplina
+
+- **Inserção**:
+  - **Código**: MAT101
+  - **Novo Nome**: Matemática Avançada
+
+- **Resultado Esperado**:
+  - O nome da disciplina com código "MAT101" deve ser alterado para "Matemática Avançada".
+  - A lista de disciplinas deve refletir a alteração.
+
+### Teste de Remoção de Disciplina
+
+- **Inserção**:
+  - **Código**: MAT101
+
+- **Resultado Esperado**:
+  - A disciplina com código "MAT101" deve ser removida com sucesso.
+  - A lista de disciplinas não deve incluir mais a disciplina com código "MAT101".
+
+### Teste de Cadastro de Turma
+
+- **Inserção**:
+  - **Código da Turma**: T1
+  - **Disciplina**: MAT101
+  - **Professor**: Prof. Ana
+
+- **Resultado Esperado**:
+  - A turma deve ser cadastrada com sucesso.
+  - A lista de turmas deve incluir "T1 - MAT101 - Prof. Ana".
+
+### Teste de Pesquisa de Turma
+
+- **Inserção**:
+  - **Código da Turma**: T1
+
+- **Resultado Esperado**:
+  - O sistema deve retornar as informações da turma com código "T1", incluindo disciplina e professor.
+
+### Teste de Alteração de Turma
+
+- **Inserção**:
+  - **Código da Turma**: T1
+  - **Nova Disciplina**: MAT102
+  - **Novo Professor**: Prof. Bruno
+
+- **Resultado Esperado**:
+  - A disciplina e o professor da turma com código "T1" devem ser alterados para "MAT102" e "Prof. Bruno", respectivamente.
+  - A lista de turmas deve refletir a alteração.
+
+### Teste de Remoção de Turma
+
+- **Inserção**:
+  - **Código da Turma**: T1
+
+- **Resultado Esperado**:
+  - A turma com código "T1" deve ser removida com sucesso.
+  - A lista de turmas não deve incluir mais a turma com código "T1".
+
+### Teste de Exceção no Cadastro de Aluno
+
+- **Inserção**:
+  - **Nome**: (Deixe em branco)
+  - **Matrícula**: 123456
+
+- **Resultado Esperado**:
+  - `CampoEmBrancoException` deve ser lançada com a mensagem "Nome não pode ser vazio".
+
+### Teste de Exceção no Cadastro de Disciplina
+
+- **Inserção**:
+  - **Código**: (Deixe em branco)
+  - **Nome**: Matemática I
+
+- **Resultado Esperado**:
+  - `CampoEmBrancoException` deve ser lançada com a mensagem "Código não pode ser vazio".
+
+### Teste de Exceção no Cadastro de Turma
+
+- **Inserção**:
+  - **Código da Turma**: T2
+  - **Disciplina**: (Deixe em branco)
+  - **Professor**: Prof. Ana
+
+- **Resultado Esperado**:
+  - `DisciplinaNaoAtribuidaException` deve ser lançada com a mensagem "Disciplina não atribuída".
+
+### Teste de Impressão da Lista de Presença
+
+- **Inserção**:
+  - **Código da Turma**: T1 (que já tem alunos matriculados)
+
+- **Resultado Esperado**:
+  - A lista de presença deve ser impressa, incluindo o nome da disciplina, o nome do professor, o código da turma e a lista de alunos matriculados.
+
