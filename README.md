@@ -53,39 +53,50 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
 
 - **Inserção**:
   - **Nome**: João Silva
-  - **Matrícula**: 123456
-  - **Data de Nascimento**: 01/01/2000
+  - **CPF**: 123456
+  - **E-mail**: joaosilva@email.com
+  - **Matricula**: 23/0012345
+  - **Curso**: Engenharia de Software
 
 - **Resultado Esperado**:
   - O aluno deve ser cadastrado com sucesso.
-  - A lista de alunos deve incluir "João Silva" com matrícula "123456".
+  - A lista de alunos deve incluir "João Silva" com matrícula "23/0012345".
 
 ### Teste de Pesquisa de Aluno
 
 - **Inserção**:
-  - **Matrícula**: 123456
+  - **Matrícula**: 23/0012345
 
 - **Resultado Esperado**:
-  - O sistema deve retornar as informações do aluno com matrícula "123456", incluindo nome e data de nascimento.
+  - O sistema deve retornar as informações do aluno com matrícula "23/0012345", incluindo nome, CPF, e-mail, matrícula e curso.
 
 ### Teste de Alteração de Aluno
 
 - **Inserção**:
-  - **Matrícula**: 123456
-  - **Novo Nome**: João Pedro Silva
+  - **Matrícula**: 23/0012345
+  - **Nome**: João Pedro Silva
+  - **CPF**: 12345678901
+  - **Matrícula**: 230012345
+  - **E-mail**: joaosilva@email.com.br
+  - **Curso**: Engenharia de Software
+
+
 
 - **Resultado Esperado**:
-  - O nome do aluno com matrícula "123456" deve ser alterado para "João Pedro Silva".
+  - Cadastro atualizado com sucesso.
+  - app.Aluno@(endereço)
+  - O nome do aluno com matrícula "30012345" deve ser alterado para "João Pedro Silva". 
+  - Bem como os outros campos serão atualizados conforme novos valores.
   - A lista de alunos deve refletir a alteração.
 
 ### Teste de Remoção de Aluno
 
 - **Inserção**:
-  - **Matrícula**: 123456
+  - **Matrícula**: 230012345
 
 - **Resultado Esperado**:
-  - O aluno com matrícula "123456" deve ser removido com sucesso.
-  - A lista de alunos não deve incluir mais o aluno com matrícula "123456".
+  - Aluno removido do cadastro
+  - A lista de alunos não deve incluir mais o aluno com matrícula "230012345".
 
 ### Teste de Cadastro de Disciplina
 
@@ -208,71 +219,50 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
 - **Resultado Esperado**:
   - A lista de presença deve ser impressa, incluindo o nome da disciplina, o nome do professor, o código da turma e a lista de alunos matriculados.
 
-## Teste de Cadastro de Professor
+### Teste de Cadastro de Professor
 
-- *Inserção*:
-  - *Nome*: andre lanna
-  - *MatrículaFUB*: 232002
-  - *email*: 232002UNb
-  - *Cpf*: 1111
-  - *area de formação* : software
-  - *Data de Nascimento*: 01/07/1999
+- **Inserção**:
+  - **Nome**: Andre Lanna
+  - **MatrículaFUB**: 232002
+  - **Email**: 232002UNB
+  - **Cpf**: 1111
+  - **Área de Formação**: Software
 
-- *Resultado Esperado*:
+- **Resultado Esperado**:
   - O professor deve ser cadastrado com sucesso.
-  - A lista de professores deve incluir "Andre lanna" com matrícula "232002" e as respectivas informações fornecidas.
+  - A lista de professores deve incluir "Andre Lanna" com matrícula "232002" e as respectivas informações fornecidas.
 
-### Teste de Pesquisa de Professor, matricula valida
+### Teste de Pesquisa de Professor, Matrícula Válida
 
-- *Inserção*:
-  - *Matrícula*: 232002
+- **Inserção**:
+  - **Matrícula**: 232002
 
-- *Resultado Esperado*:
-  - O sistema deve retornar as informações do aluno com matrícula "232002", incluindo nome e area de formação.
- 
+- **Resultado Esperado**:
+  - O sistema deve retornar as informações do professor com matrícula "232002", incluindo nome e área de formação.
 
-### Teste de Pesquisa de Professor, matricula invalida
+### Teste de Pesquisa de Professor, Matrícula Inválida
 
--*Inserção*:
-  -*Matrícula*: 111111
+- **Inserção**:
+  - **Matrícula**: 111111
 
--*Resultado Esperado*:
-  -O Sistema deve retornar "Professor não encontrado".
-  
+- **Resultado Esperado**:
+  - O sistema deve retornar "Professor não encontrado".
+
 ### Teste de Atualização de Professor
 
-- *Inserção*:
-  - *Matrícula*: 232002
-    
--*Resultado Esperado*:
-  -O sistema devera reconhecer o professor e fornecer suas informações para serem alteradas
+- **Inserção**:
+  - **Matrícula**: 232002
 
--*Inserção*:
-  -*nome*: pedro augusto
-  -*matriculaFUB* : 44444
-  -*email*: 44444UNB
-  -*cpf*: 4444
-  -*area de formação*: eletronica
-  -*data de nascimento*: 02/05/1987
+- **Resultado Esperado**:
+  - O sistema deve reconhecer o professor e fornecer suas informações para serem alteradas.
 
-- *Resultado Esperado*:
-  - O nome do Professor com matrícula "232002" deve ser alterado para "Pedro Augusto" assim como todas as suas outras informações tambem serâo alteradas.
-  - A lista de Professores deve refletir a alteração.
+- **Inserção**:
+  - **Nome**: Pedro Augusto
+  - **MatrículaFUB**: 44444
+  - **Email**: 44444UNB
+  - **Cpf**: 4444
+  - **Área de Formação**: Eletrônica
 
-### Teste de Remoção de Professor
-
-- *Inserção*:
-  - *Matrícula*: 44444
-
-- *Resultado Esperado*:
-  - O aluno com matrícula "44444" deve ser removido com sucesso.
-  - A lista de alunos não deve incluir mais o aluno com matrícula "44444".
- 
-### Teste CampoemBranco (equivalente para todas as categorias, como nome,cpf,matricula, etc)
-
--*Inserção*:
-  -*Nome* : (campo em branco)
-
--*Resultado Esperado*:
-  - O sistema devera avisar o usurio que o campo "nome" não pode ser deixado em branco e deverar retornar a pedir o nome do professor ao usuario
-
+- **Resultado Esperado**:
+  - O nome do professor com matrícula "232002" deve ser alterado para "Pedro Augusto", assim como todas as suas outras informações também serão alteradas.
+  - A lista de professores deve refletir a alteração.
