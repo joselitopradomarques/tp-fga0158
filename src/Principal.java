@@ -40,7 +40,7 @@ public class Principal {
                     menuDisciplina.menuDisciplina(); // Abre o menu principal de disciplinas
                     break;
                 case 4: 
-                    MenuTurma menuTurma = new MenuTurma(cadTurma); //Cria o menu de Turmas
+                    MenuTurma menuTurma = new MenuTurma(cadTurma, cadDisciplina, cadProf); //Cria o menu de Turmas
                     menuTurma.menuTurma(); // Abre o menu principal de turmas
                     break;
                 case 0: 
