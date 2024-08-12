@@ -87,14 +87,21 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
   - app.Aluno@(endereço)
   - O nome do aluno com matrícula "30012345" deve ser alterado para "João Pedro Silva". 
   - Bem como os outros campos serão atualizados conforme novos valores.
+  - Cadastro atualizado com sucesso.
+  - app.Aluno@(endereço)
+  - O nome do aluno com matrícula "30012345" deve ser alterado para "João Pedro Silva". 
+  - Bem como os outros campos serão atualizados conforme novos valores.
   - A lista de alunos deve refletir a alteração.
 
 ### Teste de Remoção de Aluno
 
 - **Inserção**:
   - **Matrícula**: 230012345
+  - **Matrícula**: 230012345
 
 - **Resultado Esperado**:
+  - Aluno removido do cadastro
+  - A lista de alunos não deve incluir mais o aluno com matrícula "230012345".
   - Aluno removido do cadastro
   - A lista de alunos não deve incluir mais o aluno com matrícula "230012345".
 
@@ -266,3 +273,19 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
 - **Resultado Esperado**:
   - O nome do professor com matrícula "232002" deve ser alterado para "Pedro Augusto", assim como todas as suas outras informações também serão alteradas.
   - A lista de professores deve refletir a alteração.
+
+### Teste de Remoção de Professor
+
+- **Inserção**:
+  - **Matrícula**: 44444
+
+- **Resultado Esperado**:
+  - O aluno com matrícula "44444" deve ser removido com sucesso.
+  - A lista de alunos não deve incluir mais o aluno com matrícula "44444".
+ 
+### Teste CampoemBranco (equivalente para todas as categorias, como nome,cpf,matricula, etc)
+  - **Inserção**:
+    - **Nome**: (campo em branco)
+
+  - **Resultado Esperado**:
+    - O sistema devera avisar o usurio que o campo "nome" não pode ser deixado em branco e deverar retornar a pedir o nome do professor ao usuario
