@@ -45,7 +45,6 @@ O sistema deve:
    ```bash
    git clone https://github.com/joselitopradomarques/tp-fga0158.git
 
-
 ## Inserções para Testes e Resultados Esperados
 
 Aqui estão alguns exemplos de inserções e os resultados esperados para testar todas as funcionalidades e operações do sistema:
@@ -80,8 +79,6 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
   - **Matrícula**: 230012345
   - **E-mail**: joaosilva@email.com.br
   - **Curso**: Engenharia de Software
-
-
 
 - **Resultado Esperado**:
   - Cadastro atualizado com sucesso.
@@ -267,3 +264,19 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
 - **Resultado Esperado**:
   - O nome do professor com matrícula "232002" deve ser alterado para "Pedro Augusto", assim como todas as suas outras informações também serão alteradas.
   - A lista de professores deve refletir a alteração.
+
+### Teste de Remoção de Professor
+
+- **Inserção**:
+  - **Matrícula**: 44444
+
+- **Resultado Esperado**:
+  - O aluno com matrícula "44444" deve ser removido com sucesso.
+  - A lista de alunos não deve incluir mais o aluno com matrícula "44444".
+ 
+### Teste CampoemBranco (equivalente para todas as categorias, como nome,cpf,matricula, etc)
+  - **Inserção**:
+    - **Nome**: (campo em branco)
+
+  - **Resultado Esperado**:
+    - O sistema devera avisar o usurio que o campo "nome" não pode ser deixado em branco e deverar retornar a pedir o nome do professor ao usuario
