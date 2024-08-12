@@ -6,6 +6,7 @@ import view.MenuAluno;
 import view.MenuDisciplina;
 import view.MenuPrincipal;
 import view.MenuProfessor;
+import view.MenuTurma;
 
 
 public class Principal {
