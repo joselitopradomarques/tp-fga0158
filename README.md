@@ -208,3 +208,71 @@ Aqui estão alguns exemplos de inserções e os resultados esperados para testar
 - **Resultado Esperado**:
   - A lista de presença deve ser impressa, incluindo o nome da disciplina, o nome do professor, o código da turma e a lista de alunos matriculados.
 
+## Teste de Cadastro de Professor
+
+- *Inserção*:
+  - *Nome*: andre lanna
+  - *MatrículaFUB*: 232002
+  - *email*: 232002UNb
+  - *Cpf*: 1111
+  - *area de formação* : software
+  - *Data de Nascimento*: 01/07/1999
+
+- *Resultado Esperado*:
+  - O professor deve ser cadastrado com sucesso.
+  - A lista de professores deve incluir "Andre lanna" com matrícula "232002" e as respectivas informações fornecidas.
+
+### Teste de Pesquisa de Professor, matricula valida
+
+- *Inserção*:
+  - *Matrícula*: 232002
+
+- *Resultado Esperado*:
+  - O sistema deve retornar as informações do aluno com matrícula "232002", incluindo nome e area de formação.
+ 
+
+### Teste de Pesquisa de Professor, matricula invalida
+
+-*Inserção*:
+  -*Matrícula*: 111111
+
+-*Resultado Esperado*:
+  -O Sistema deve retornar "Professor não encontrado".
+  
+### Teste de Atualização de Professor
+
+- *Inserção*:
+  - *Matrícula*: 232002
+    
+-*Resultado Esperado*:
+  -O sistema devera reconhecer o professor e fornecer suas informações para serem alteradas
+
+-*Inserção*:
+  -*nome*: pedro augusto
+  -*matriculaFUB* : 44444
+  -*email*: 44444UNB
+  -*cpf*: 4444
+  -*area de formação*: eletronica
+  -*data de nascimento*: 02/05/1987
+
+- *Resultado Esperado*:
+  - O nome do Professor com matrícula "232002" deve ser alterado para "Pedro Augusto" assim como todas as suas outras informações tambem serâo alteradas.
+  - A lista de Professores deve refletir a alteração.
+
+### Teste de Remoção de Professor
+
+- *Inserção*:
+  - *Matrícula*: 44444
+
+- *Resultado Esperado*:
+  - O aluno com matrícula "44444" deve ser removido com sucesso.
+  - A lista de alunos não deve incluir mais o aluno com matrícula "44444".
+ 
+### Teste CampoemBranco (equivalente para todas as categorias, como nome,cpf,matricula, etc)
+
+-*Inserção*:
+  -*Nome* : (campo em branco)
+
+-*Resultado Esperado*:
+  - O sistema devera avisar o usurio que o campo "nome" não pode ser deixado em branco e deverar retornar a pedir o nome do professor ao usuario
+
