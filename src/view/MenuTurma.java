@@ -11,6 +11,14 @@ import cadastros.CampoEmBrancoException;
 
 public class MenuTurma {
 
+private CadastroTurma cadastroTurma;
+
+    // Construtor que recebe o CadastroTurma
+    public MenuTurma(CadastroTurma cadastroTurma) {
+        this.cadastroTurma = cadastroTurma;
+
+    }
+
     public static Turma dadosNovaTurma() {
         String codigo = lerCodigo();
         String nomeDisciplina = lerDescricao();
@@ -69,7 +77,7 @@ public class MenuTurma {
         return nomeProfessorVal;
     }
 
-    public static void menuTurma(CadastroTurma cadTurma) {
+    public void menuTurma() {
         String txt = "Informe a opção desejada \n"
                 + "1 - Cadastrar turma\n"
                 + "2 - Pesquisar turma\n"
@@ -86,7 +94,7 @@ public class MenuTurma {
             switch (opcao) {
                 case 1:
                     Turma novaTurma = dadosNovaTurma();
-                    boolean cadastrada = cadTurma.cadastrarTurma(novaTurma);
+                    boolean cadastrada = cadastroTurma.cadastrarTurma(novaTurma);
                     if (cadastrada) {
                         JOptionPane.showMessageDialog(null, "Turma cadastrada com sucesso.");
                     } else {
@@ -96,7 +104,7 @@ public class MenuTurma {
 
                 case 2:
                     String codigo = lerCodigo();
-                    Turma t = cadTurma.pesquisarTurma(codigo);
+                    Turma t = cadastroTurma.pesquisarTurma(codigo);
                     if (t != null) {
                         JOptionPane.showMessageDialog(null, "Turma encontrada: " + t.toString());
                     } else {
@@ -107,7 +115,7 @@ public class MenuTurma {
                 case 3:
                     String codigoAtualizar = lerCodigo();
                     Turma novaTurmaAtualizada = dadosNovaTurma();
-                    boolean atualizado = cadTurma.atualizarTurma(codigoAtualizar, novaTurmaAtualizada);
+                    boolean atualizado = cadastroTurma.atualizarTurma(codigoAtualizar, novaTurmaAtualizada);
                     if (atualizado) {
                         JOptionPane.showMessageDialog(null, "Turma atualizada com sucesso.");
                     } else {
@@ -117,8 +125,8 @@ public class MenuTurma {
 
                 case 4:
                     String codigoRemover = lerCodigo();
-                    Turma turmaRemover = cadTurma.pesquisarTurma(codigoRemover);
-                    boolean removido = cadTurma.removerTurma(turmaRemover);
+                    Turma turmaRemover = cadastroTurma.pesquisarTurma(codigoRemover);
+                    boolean removido = cadastroTurma.removerTurma(turmaRemover);
                     if (removido) {
                         JOptionPane.showMessageDialog(null, "Turma removida com sucesso.");
                     } else {
@@ -127,7 +135,7 @@ public class MenuTurma {
                     break;
 
                 case 5:
-                    imprimirListaPresenca(cadTurma);
+                    imprimirListaPresenca();
                     break;
 
                 default:
@@ -136,14 +144,14 @@ public class MenuTurma {
         } while (opcao != 0);
     }
 
-    private static void imprimirListaPresenca(CadastroTurma cadTurma) {
+    private void imprimirListaPresenca() {
         String codigoTurma = JOptionPane.showInputDialog("Informe o código da turma:");
         if (codigoTurma == null || codigoTurma.trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Código da turma não pode ser vazio.");
             return;
         }
 
-        Turma turma = cadTurma.pesquisarTurma(codigoTurma);
+        Turma turma = cadastroTurma.pesquisarTurma(codigoTurma);
         if (turma != null) {
             String resultado = "Lista de Presença\n";
             resultado += "Disciplina: " + turma.getDisciplina().getNome() + "\n";
