@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>src</name>
+	<name>src(executavel)</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1723471678732</id>
+			<id>1723519840609</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 import app.Aluno;
 import cadastros.CadastroAluno;
 import cadastros.CampoemBranco;
-import cadastros.CampoemBranco;
 
 public class MenuAluno {
 
