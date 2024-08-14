@@ -6,22 +6,25 @@ import javax.swing.JOptionPane;
 import app.Turma;
 import app.Disciplina;
 import app.Professor;
+import app.Aluno;
 import cadastros.CadastroDisciplina;
 import cadastros.CadastroProfessor;
 import cadastros.CadastroTurma;
 import cadastros.CampoEmBrancoException;
+import cadastros.CadastroAluno;
 
 public class MenuTurma {
     private CadastroTurma cadastroTurma;
     private CadastroDisciplina cadastroDisciplina;
     private CadastroProfessor cadastroProfessor;
+    private CadastroAluno cadastroAluno;
 
     // Construtor que recebe o CadastroTurma, CadastroDisciplina e CadastroProfessor
-    public MenuTurma(CadastroTurma cadastroTurma, CadastroDisciplina cadastroDisciplina, CadastroProfessor cadastroProfessor) {
+    public MenuTurma(CadastroTurma cadastroTurma, CadastroDisciplina cadastroDisciplina, CadastroProfessor cadastroProfessor, CadastroAluno cadastroAluno) {
         this.cadastroTurma = cadastroTurma;
         this.cadastroDisciplina = cadastroDisciplina;
         this.cadastroProfessor = cadastroProfessor;
-
+        this.cadastroAluno = cadastroAluno;
     }
 
     public Turma dadosNovaTurma() {
@@ -83,9 +86,9 @@ public class MenuTurma {
         boolean formval = false;
         while (!formval) {
             try {
-                codigoProfessor = JOptionPane.showInputDialog("Informe o código do professor:");
+                codigoProfessor = JOptionPane.showInputDialog("Informe a matrícula do professor:");
                 if (codigoProfessor.trim().isEmpty()) {
-                    throw new CampoEmBrancoException("código do professor");
+                    throw new CampoEmBrancoException("matrícula do professor");
                 }
                 formval = true;
             } catch (CampoEmBrancoException e) {
@@ -95,13 +98,31 @@ public class MenuTurma {
         return codigoProfessor;
     }
 
+    private static String lerCodigoAluno() {
+        String codigoAluno = null;
+        boolean formval = false;
+        while (!formval) {
+            try {
+                codigoAluno = JOptionPane.showInputDialog("Informe a matrícula do aluno:");
+                if (codigoAluno.trim().isEmpty()) {
+                    throw new CampoEmBrancoException("matrícula do aluno");
+                }
+                formval = true;
+            } catch (CampoEmBrancoException e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        return codigoAluno;
+    }
+    
     public void menuTurma() {
         String txt = "Informe a opção desejada \n"
                 + "1 - Cadastrar turma\n"
                 + "2 - Pesquisar turma\n"
                 + "3 - Atualizar turma\n"
                 + "4 - Remover turma\n"
-                + "5 - Imprimir lista de presença\n"
+                + "5 - Adicionar Aluno\n"
+                + "6 - Imprimir lista de presença\n"
                 + "0 - Voltar para menu anterior";
 
         int opcao;
@@ -159,7 +180,31 @@ public class MenuTurma {
                         JOptionPane.showMessageDialog(null, "Turma não encontrada.");
                     }
                     break;
+            
                 case 5:
+                    String codigoTurma = lerCodigo();
+
+                    Turma turma = cadastroTurma.pesquisarTurma(codigoTurma);
+                    if (turma != null) {
+                        JOptionPane.showMessageDialog(null, "Turma encontrada: " + turma.toString());
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Turma não encontrada.");
+                        break;
+                    }
+
+                    String codigoAluno = lerCodigoAluno();
+                    Aluno aluno = cadastroAluno.pesquisarAluno(codigoAluno);
+                    boolean alunO = turma.addAluno(aluno);
+                    if (alunO){
+                        JOptionPane.showMessageDialog(null, "Aluno adicionado na turma.");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Aluno com essa matrícula não existe.");
+                    }
+                    
+                    break;
+
+                case 6:
                     imprimirListaPresenca();
                     break;
 
@@ -182,6 +227,7 @@ public class MenuTurma {
             resultado += "Disciplina: " + turma.getDisciplina().getNome() + "\n";
             resultado += "Professor: " + turma.getProfessor().getNome() + "\n";
             resultado += "Código da Turma: " + turma.getCodigoTurma() + "\n";
+            resultado += "Alunos Matriculados: " +"\n" + turma.mostrarAlunos() +"\n";
 
             JOptionPane.showMessageDialog(null, resultado);
         } else {

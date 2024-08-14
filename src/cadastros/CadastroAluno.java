@@ -48,4 +48,13 @@ public class CadastroAluno {
 			}
 			return resposta;
 		}
+		
+		public String mostrarNomes() {
+			String nomes = "";
+			for (Aluno aluno : alunos) {
+				nomes += aluno.getNome() + "\n";
+			}
+			return nomes;
+		}
+		
 }
